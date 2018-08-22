@@ -1,0 +1,19 @@
+A=imread('download 2.jpg');
+
+[M,N]=size(A);
+for i=1:M
+    for j=1:N
+        P = A(i,j);
+        B = de2bi(P,8);
+        B = fliplr(B);
+        B(5) = B(1);
+        B(6) = B(2);
+        B(7) = B(3);
+        B(8) = B(4);
+        A(i,j) = bi2de(B);
+        
+    end
+end
+imshow(A)
+
+

@@ -1,0 +1,19 @@
+A=imread('lena attack.png');
+A=imresize(A,0.5);
+[M,N]=size(A);
+for i=1:M
+    for j=1:N
+        P = A(i,j);
+        B = de2bi(P,8);
+        B = fliplr(B);
+        if  B(5) == B(1) & B(6) == B(2) &  B(7) == B(3) &  B(8) == B(4)
+            A(i,j) = A(i,j);
+        
+        else
+            A(i,j) = 0;
+        end
+         
+        
+    end
+end
+imshow(A)
