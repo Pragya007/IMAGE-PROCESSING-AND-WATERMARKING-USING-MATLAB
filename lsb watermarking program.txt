@@ -1,0 +1,25 @@
+E=imread('download 68.png');
+A=rgb2gray(E);
+Z=rgb2gray(E);
+C=imread('pragya 2.png');
+B=im2bw(C);
+B=uint8(B);
+[M,N]=size(A);
+for i=1:M
+    for j=1:N
+        if rem(A(i,j),2)~=B(i,j)
+            if rem(A(i,j),2)==0
+                A(i,j)=A(i,j)+1;
+            else
+                A(i,j)=A(i,j)-1;
+            end
+        end
+    end
+end
+
+ssimval=ssim(Z,A)
+peaksnr=psnr(Z,A)
+err=immse(Z,A)
+            
+            
+            
